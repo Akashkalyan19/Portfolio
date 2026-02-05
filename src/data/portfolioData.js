@@ -39,7 +39,7 @@ export const portfolioData = {
     {
       id: 1,
       title: "TicketBlitz",
-      image: "/projects/github.png",
+      image: "/projects/TicketBlitz",
       description:
         "Concurrency-Safe Seat Booking Backend. Designed a transactional seat booking system enforcing a strict state machine (available -> held -> booked) under concurrent access. Prevented race conditions using PostgreSQL row-level locking and ACID transactions.",
       tags: ["Node.js", "Express", "PostgreSQL"],
