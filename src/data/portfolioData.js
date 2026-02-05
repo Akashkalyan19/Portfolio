@@ -40,17 +40,26 @@ export const portfolioData = {
       id: 1,
       title: "TicketBlitz",
       image: "/projects/github.png",
-      description: "Concurrency-Safe Seat Booking Backend. Designed a transactional seat booking system enforcing a strict state machine (available -> held -> booked) under concurrent access. Prevented race conditions using PostgreSQL row-level locking and ACID transactions.",
+      description:
+        "Concurrency-Safe Seat Booking Backend. Designed a transactional seat booking system enforcing a strict state machine (available -> held -> booked) under concurrent access. Prevented race conditions using PostgreSQL row-level locking and ACID transactions.",
       tags: ["Node.js", "Express", "PostgreSQL"],
-      demoUrl: "https://github.com/Akashkalyan19/TicketBlitz",
+      demoUrl: "https://ticket-blitz-zeta.vercel.app",
       githubUrl: "https://github.com/Akashkalyan19/TicketBlitz",
     },
     {
       id: 2,
       title: "ProdWatch",
       image: "/projects/Prodwatch.png",
-      description: "Production Incident Management System. Built a platform with JWT auth and RBAC. Designed an immutable incident timeline with PostgreSQL trigger-based audit logging.",
-      tags: ["React", "Node.js", "Express", "PostgreSQL", "JWT", "Tailwind CSS"],
+      description:
+        "Production Incident Management System. Built a platform with JWT auth and RBAC. Designed an immutable incident timeline with PostgreSQL trigger-based audit logging.",
+      tags: [
+        "React",
+        "Node.js",
+        "Express",
+        "PostgreSQL",
+        "JWT",
+        "Tailwind CSS",
+      ],
       demoUrl: "https://prod-watch.vercel.app/",
       githubUrl: "https://github.com/Akashkalyan19/ProdWatch",
     },
@@ -58,7 +67,8 @@ export const portfolioData = {
       id: 3,
       title: "ChitChatGPT",
       image: "/projects/ChitChatGPT.png",
-      description: "Multi User Real-Time Chat with AI. Real-time chat with multi-room messaging, persistence, and AI integration using Gemini API and Socket.io.",
+      description:
+        "Multi User Real-Time Chat with AI. Real-time chat with multi-room messaging, persistence, and AI integration using Gemini API and Socket.io.",
       tags: ["React", "Node.js", "Socket.io", "PostgreSQL", "Gemini API"],
       demoUrl: "https://chitchatgpt-e1hz.onrender.com/",
       githubUrl: "https://github.com/Akashkalyan19/ChitChatGPT",
@@ -69,7 +79,7 @@ export const portfolioData = {
     { name: "HTML/CSS", level: 90, category: "frontend" },
     { name: "JavaScript", level: 90, category: "frontend" },
     { name: "React", level: 85, category: "frontend" },
-    
+
     // Backend
     { name: "Node.js", level: 90, category: "backend" },
     { name: "Express", level: 85, category: "backend" },
