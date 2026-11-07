@@ -1,77 +1,28 @@
-import { Briefcase, Code, Database, User } from "lucide-react";
+import { ArrowUpRight, GraduationCap } from "lucide-react";
 import { portfolioData } from "../data/portfolioData";
 
 export const AboutSection = () => {
-  const { bio, role } = portfolioData.personalInfo;
+  const { degree, institution, graduation, role } = portfolioData.personalInfo;
+  const linkedin = portfolioData.socialLinks.find((link) => link.name === "LinkedIn");
+
   return (
-    <section id="about" className="py-24 px-4 relative">
-      {" "}
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          About <span className="text-primary"> Me</span>
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <h3 className="text-2xl font-semibold">
-              {role}
-            </h3>
-
-            <p className="text-muted-foreground">
-              {bio}
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-              <a href="#contact" className="cosmic-button">
-                {" "}
-                Get In Touch
-              </a>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6">
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Code className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg"> Full Stack Development</h4>
-                  <p className="text-muted-foreground">
-                    Building robust web applications using React, Node.js, and modern frameworks.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">  
-                  <Database className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">Backend Engineering</h4>
-                  <p className="text-muted-foreground">
-                    Designing scalable database schemas, handling concurrency, and ensuring data integrity.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Briefcase className="h-6 w-6 text-primary" />
-                </div>
-
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">API Design</h4>
-                  <p className="text-muted-foreground">
-                    Creating RESTful APIs with strict validation, authentication, and secure patterns.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+    <section className="about-section section-wrap" id="about" aria-labelledby="about-title">
+      <div className="section-kicker" data-reveal><span>03</span><span>Behind the code</span><i /></div>
+      <div className="about-layout">
+        <div className="about-statement" data-reveal>
+          <span className="about-spark" aria-hidden="true">✳</span>
+          <h2 className="section-heading" id="about-title">Curious about the product.<br /><em>Serious about the details.</em></h2>
         </div>
+        <div className="about-copy" data-reveal>
+          <p>I’m Akash, a {role.toLowerCase()} interested in how APIs, relational data, and failure handling fit together. I enjoy building complete products while paying close attention to what the system must keep true.</p>
+          <p>My sweet spot is turning a fuzzy product requirement into a clear data model, a dependable API, and an interface people can actually use.</p>
+          {linkedin && <a className="text-link" href={linkedin.url} target="_blank" rel="noreferrer">More about my journey <ArrowUpRight size={16} /></a>}
+        </div>
+      </div>
+      <div className="education-card" data-reveal>
+        <span className="education-icon"><GraduationCap size={28} aria-hidden="true" /></span>
+        <div><span>EDUCATION / {graduation}</span><h3>{degree}</h3><p>{institution}</p></div>
+        <span className="education-stamp">B.TECH<br /><strong>’{graduation.slice(-2)}</strong></span>
       </div>
     </section>
   );

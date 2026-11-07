@@ -1,91 +1,72 @@
-import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
+import { portfolioData } from "../data/portfolioData";
 
 const navItems = [
-  { name: "Home", href: "#hero" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { label: "Work", href: "#work" },
+  { label: "Approach", href: "#engineering" },
+  { label: "About", href: "#about" },
 ];
 
 export const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.screenY > 10);
+    const updateScrollState = () => setIsScrolled(window.scrollY > 24);
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") setIsMenuOpen(false);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", updateScrollState, { passive: true });
+    window.addEventListener("keydown", closeOnEscape);
+    updateScrollState();
+
+    return () => {
+      window.removeEventListener("scroll", updateScrollState);
+      window.removeEventListener("keydown", closeOnEscape);
+    };
   }, []);
+
+  useEffect(() => {
+    document.body.classList.toggle("menu-open", isMenuOpen);
+    return () => document.body.classList.remove("menu-open");
+  }, [isMenuOpen]);
+
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
-    <nav
-      className={cn(
-        "fixed w-full z-40 transition-all duration-300",
-        isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
-      )}
-    >
-      <div className="container flex items-center justify-between">
-        <a
-          className="text-xl font-bold text-primary flex items-center"
-          href="#hero"
-        >
-          <span className="relative z-10">
-            <span className="text-glow text-foreground"> Akash's</span>{" "}
-            Portfolio
-          </span>
+    <header className={"site-header" + (isScrolled ? " is-scrolled" : "")}>
+      <nav className="nav-shell" aria-label="Main navigation">
+        <a className="wordmark" href="#top" onClick={closeMenu} aria-label="Akash Kalyan, back to top">
+          <span className="wordmark-mark" aria-hidden="true">A<span>K</span></span>
+          <span className="wordmark-name">Akash Kalyan<small>Software engineer</small></span>
         </a>
 
-        {/* desktop nav */}
-        <div className="hidden md:flex space-x-8">
-          {navItems.map((item, key) => (
-            <a
-              key={key}
-              href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300"
-            >
-              {item.name}
-            </a>
-          ))}
+        <div className="desktop-nav">
+          {navItems.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}
+          <a className="nav-contact" href="#contact">Let’s talk <ArrowUpRight size={15} aria-hidden="true" /></a>
         </div>
-
-        {/* mobile nav */}
 
         <button
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-2 text-foreground z-50"
-          aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+          className="menu-toggle"
+          type="button"
+          aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-navigation"
+          onClick={() => setIsMenuOpen((open) => !open)}
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}{" "}
+          {isMenuOpen ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
         </button>
 
-        <div
-          className={cn(
-            "fixed inset-0 bg-background/95 backdroup-blur-md z-40 flex flex-col items-center justify-center",
-            "transition-all duration-300 md:hidden",
-            isMenuOpen
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
-          )}
-        >
-          <div className="flex flex-col space-y-8 text-xl">
-            {navItems.map((item, key) => (
-              <a
-                key={key}
-                href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </a>
-            ))}
-          </div>
+        <div className={"mobile-nav" + (isMenuOpen ? " is-open" : "")} id="mobile-navigation" aria-hidden={!isMenuOpen}>
+          {navItems.map((item) => (
+            <a key={item.href} href={item.href} onClick={closeMenu} tabIndex={isMenuOpen ? 0 : -1}>{item.label}</a>
+          ))}
+          <a href="#contact" onClick={closeMenu} tabIndex={isMenuOpen ? 0 : -1}>Let’s talk <ArrowUpRight size={16} /></a>
+          <a href={portfolioData.socialLinks[0].url} target="_blank" rel="noreferrer" onClick={closeMenu} tabIndex={isMenuOpen ? 0 : -1}>GitHub <ArrowUpRight size={16} /></a>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 };

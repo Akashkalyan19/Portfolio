@@ -1,93 +1,95 @@
-import { ArrowRight, ExternalLink, Github, Folder } from "lucide-react";
+/* eslint-disable react/prop-types */
+import { ArrowRight, ArrowUpRight, Check, Github } from "lucide-react";
 import { portfolioData } from "../data/portfolioData";
 
+const ProjectLinks = ({ project }) => (
+  <div className="project-links">
+    <a className="project-link-primary" href={project.demoUrl} target="_blank" rel="noreferrer">
+      View live project <ArrowUpRight size={17} aria-hidden="true" />
+    </a>
+    <a className="project-link-secondary" href={project.repoUrl} target="_blank" rel="noreferrer">
+      <Github size={16} aria-hidden="true" /> Source code
+    </a>
+  </div>
+);
+
+const BrowserFrame = ({ project, label }) => (
+  <div className="browser-frame">
+    <div className="browser-bar">
+      <span className="window-dots"><i /><i /><i /></span>
+      <span>{label}</span>
+      <ArrowUpRight size={14} aria-hidden="true" />
+    </div>
+    <div className="project-image-wrap">
+      <img src={project.image} alt={project.imageAlt} width="1712" height="869" loading="lazy" decoding="async" />
+    </div>
+  </div>
+);
+
+const FeaturedProject = ({ project, index }) => (
+  <article className={`project-card project-card-${index + 1}`} id={project.id} aria-labelledby={`${project.id}-title`} data-reveal>
+    <div className="project-card-copy">
+      <div className="project-card-topline">
+        <span>{project.number} / FEATURED BUILD</span>
+        <span>{index === 0 ? "CONCURRENCY" : "SECURITY & AUDIT"}</span>
+      </div>
+      <h3 id={`${project.id}-title`}>{project.title}</h3>
+      <p className="project-subtitle">{project.subtitle}</p>
+      <div className="project-story">
+        <div><span>THE PROBLEM</span><p>{project.challenge}</p></div>
+        <div><span>THE APPROACH</span><p>{project.approach}</p></div>
+      </div>
+      <div className="project-outcome"><Check size={17} aria-hidden="true" /><p>{project.outcome}</p></div>
+      <div className="tag-list" aria-label="Technologies used">
+        {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
+      </div>
+      <ProjectLinks project={project} />
+      {project.demoNote && <p className="demo-note">{project.demoNote}</p>}
+    </div>
+    <a className="project-card-visual" href={project.demoUrl} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} live project`}>
+      <span className="visual-note">{index === 0 ? "NO DOUBLE BOOKINGS" : "EVERY CHANGE, TRACEABLE"} <ArrowUpRight size={15} /></span>
+      <BrowserFrame project={project} label={index === 0 ? "ticketblitz / live booking" : "prodwatch / incident control"} />
+      <span className="visual-footnote">{index === 0 ? "TRANSACTION-SAFE BOOKING FLOW" : "ROLE-BASED INCIDENT WORKSPACE"}<span>0{index + 1}</span></span>
+    </a>
+  </article>
+);
+
 export const ProjectsSection = () => {
-  const { projects } = portfolioData;
+  const [ticketBlitz, prodWatch, chitChatGPT] = portfolioData.projects;
+
   return (
-    <section id="projects" className="py-24 px-4 relative">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          {" "}
-          Featured <span className="text-primary"> Projects </span>
-        </h2>
-
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Here are some of my recent projects. Each project was carefully
-          crafted with attention to detail, performance, and user experience.
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, key) => (
-            <div
-              key={key}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover relative"
-            >
-              <a 
-                href={project.demoUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="absolute inset-0 z-0"
-              />
-              <div className="h-48 overflow-hidden bg-secondary flex items-center justify-center">
-                {project.image ? (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                ) : (
-                  <Folder className="h-16 w-16 text-muted-foreground opacity-50" />
-                )}
-              </div>
-
-              <div className="p-6">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, i) => (
-                    <span
-                      key={i}
-                      className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h3 className="text-xl font-semibold mb-1"> {project.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4">
-                  {project.description}
-                </p>
-                <div className="flex justify-between items-center relative z-10">
-                  <div className="flex space-x-3">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <Github size={20} />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+    <section className="work-section" id="work" aria-labelledby="work-title">
+      <div className="section-wrap">
+        <div className="section-kicker" data-reveal><span>01</span><span>Selected work</span><i /></div>
+        <div className="section-intro" data-reveal>
+          <h2 className="section-heading" id="work-title">Real products.<br /><em>Real engineering decisions.</em></h2>
+          <div className="section-sidecopy"><span>FROM IDEA TO IMPLEMENTATION</span><p>A selection of full-stack builds, with the backend thinking brought to the front.</p></div>
         </div>
 
-        <div className="text-center mt-12">
-          <a
-            className="cosmic-button w-fit flex items-center mx-auto gap-2"
-            target="_blank"
-            href={portfolioData.socialLinks.find(l => l.name === 'GitHub')?.url || '#'}
-          >
-            Check My Github <ArrowRight size={16} />
+        <div className="featured-projects">
+          <FeaturedProject project={ticketBlitz} index={0} />
+          <FeaturedProject project={prodWatch} index={1} />
+        </div>
+
+        <article className="supporting-project" aria-labelledby="chitchat-title" data-reveal>
+          <a className="supporting-project-image" href={chitChatGPT.demoUrl} target="_blank" rel="noreferrer" aria-label="Open ChitChatGPT live project">
+            <img src={chitChatGPT.image} alt={chitChatGPT.imageAlt} width="1916" height="870" loading="lazy" decoding="async" />
+            <span>OPEN LIVE PROJECT <ArrowUpRight size={16} /></span>
           </a>
-        </div>
+          <div className="supporting-project-copy">
+            <div className="project-card-topline"><span>{chitChatGPT.number} / ALSO BUILT</span><span>REAL-TIME</span></div>
+            <h3 id="chitchat-title">{chitChatGPT.title}</h3>
+            <p className="project-subtitle">{chitChatGPT.subtitle}</p>
+            <p className="supporting-description">{chitChatGPT.description}</p>
+            <div className="tag-list" aria-label="Technologies used">{chitChatGPT.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+            <ProjectLinks project={chitChatGPT} />
+          </div>
+        </article>
+
+        <a className="github-cta" href={portfolioData.socialLinks[0].url} target="_blank" rel="noreferrer" data-reveal>
+          <span>There’s more in the repository.</span>
+          <strong>Explore my GitHub <ArrowRight size={26} /></strong>
+        </a>
       </div>
     </section>
   );
