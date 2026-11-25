@@ -1,95 +1,176 @@
 /* eslint-disable react/prop-types */
-import { ArrowRight, ArrowUpRight, Check, Github } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, Code2, Github } from "lucide-react";
 import { portfolioData } from "../data/portfolioData";
+import { SectionHeader } from "./SectionHeader";
 
-const ProjectLinks = ({ project }) => (
-  <div className="project-links">
-    <a className="project-link-primary" href={project.demoUrl} target="_blank" rel="noreferrer">
-      View live project <ArrowUpRight size={17} aria-hidden="true" />
+const ViewportFrame = ({ project }) => {
+  const host = project.demoUrl.replace(/^https?:\/\//, "").replace(/\/$/, "");
+
+  return (
+    <a
+      href={project.demoUrl}
+      target="_blank"
+      rel="noreferrer"
+      className="group/frame block overflow-hidden rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-canvas)] transition-colors hover:border-[var(--border-strong)]"
+      aria-label={`Launch ${project.title} live demo`}
+    >
+      <div className="flex items-center justify-between border-b border-[var(--border-subtle)] bg-[var(--bg-surface)] px-3 py-2">
+        <div className="flex items-center gap-2 font-mono text-[10px] text-[var(--text-muted)]">
+          <span className="inline-block h-1.5 w-1.5 rounded-xs bg-[var(--accent)]" />
+          <span className="truncate">{host}</span>
+        </div>
+        <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-wider text-[var(--text-muted)] transition-colors group-hover/frame:text-[var(--accent)]">
+          Live
+          <ArrowUpRight size={11} aria-hidden="true" />
+        </span>
+      </div>
+
+      <div className="aspect-[16/9] overflow-hidden bg-zinc-950/20">
+        <img
+          src={project.image}
+          alt={project.imageAlt}
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover object-top transition-transform duration-300 group-hover/frame:scale-[1.02]"
+        />
+      </div>
     </a>
-    <a className="project-link-secondary" href={project.repoUrl} target="_blank" rel="noreferrer">
-      <Github size={16} aria-hidden="true" /> Source code
-    </a>
+  );
+};
+
+const ProjectActionBar = ({ project }) => (
+  <div className="mt-5 border-t border-[var(--border-subtle)] pt-4">
+    <div className="flex flex-wrap items-center gap-2.5">
+      <a
+        href={project.demoUrl}
+        target="_blank"
+        rel="noreferrer"
+        className="inline-flex h-10 items-center justify-center gap-1.5 rounded-md bg-[var(--accent)] px-4 text-xs font-semibold text-white transition-colors hover:bg-[var(--accent-hover)]"
+      >
+        <span>Live Demo</span>
+        <ArrowUpRight size={14} aria-hidden="true" />
+      </a>
+
+      <a
+        href={project.repoUrl}
+        target="_blank"
+        rel="noreferrer"
+        className="inline-flex h-10 items-center justify-center gap-1.5 rounded-md border border-[var(--border-strong)] bg-[var(--bg-canvas)] px-4 text-xs font-semibold text-[var(--text-primary)] transition-colors hover:border-[var(--text-primary)]"
+      >
+        <Github size={14} aria-hidden="true" />
+        <span>GitHub</span>
+      </a>
+    </div>
+
+    {project.demoNote && (
+      <p className="mt-2.5 font-mono text-[10px] text-[var(--text-muted)]">{project.demoNote}</p>
+    )}
   </div>
 );
 
-const BrowserFrame = ({ project, label }) => (
-  <div className="browser-frame">
-    <div className="browser-bar">
-      <span className="window-dots"><i /><i /><i /></span>
-      <span>{label}</span>
-      <ArrowUpRight size={14} aria-hidden="true" />
+const ProjectMeta = ({ project }) => (
+  <>
+    <div className="flex items-center justify-between gap-2">
+      <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--accent)]">
+        {project.index} · {project.category}
+      </span>
     </div>
-    <div className="project-image-wrap">
-      <img src={project.image} alt={project.imageAlt} width="1712" height="869" loading="lazy" decoding="async" />
-    </div>
-  </div>
-);
 
-const FeaturedProject = ({ project, index }) => (
-  <article className={`project-card project-card-${index + 1}`} id={project.id} aria-labelledby={`${project.id}-title`} data-reveal>
-    <div className="project-card-copy">
-      <div className="project-card-topline">
-        <span>{project.number} / FEATURED BUILD</span>
-        <span>{index === 0 ? "CONCURRENCY" : "SECURITY & AUDIT"}</span>
-      </div>
-      <h3 id={`${project.id}-title`}>{project.title}</h3>
-      <p className="project-subtitle">{project.subtitle}</p>
-      <div className="project-story">
-        <div><span>THE PROBLEM</span><p>{project.challenge}</p></div>
-        <div><span>THE APPROACH</span><p>{project.approach}</p></div>
-      </div>
-      <div className="project-outcome"><Check size={17} aria-hidden="true" /><p>{project.outcome}</p></div>
-      <div className="tag-list" aria-label="Technologies used">
-        {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
-      </div>
-      <ProjectLinks project={project} />
-      {project.demoNote && <p className="demo-note">{project.demoNote}</p>}
+    <h3 className="font-display mt-2 text-2xl font-bold tracking-[-0.02em] text-[var(--text-primary)]">
+      {project.title}
+    </h3>
+    <p className="font-mono text-xs text-[var(--text-muted)]">{project.tagline}</p>
+
+    <p className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">{project.summary}</p>
+
+    <div className="mt-4 flex items-start gap-2 rounded-md border border-[var(--border-subtle)] bg-[var(--bg-canvas)] px-3 py-2.5">
+      <CheckCircle2 size={14} className="mt-0.5 shrink-0 text-emerald-500" aria-hidden="true" />
+      <p className="text-xs leading-relaxed text-[var(--text-secondary)]">{project.impact}</p>
     </div>
-    <a className="project-card-visual" href={project.demoUrl} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} live project`}>
-      <span className="visual-note">{index === 0 ? "NO DOUBLE BOOKINGS" : "EVERY CHANGE, TRACEABLE"} <ArrowUpRight size={15} /></span>
-      <BrowserFrame project={project} label={index === 0 ? "ticketblitz / live booking" : "prodwatch / incident control"} />
-      <span className="visual-footnote">{index === 0 ? "TRANSACTION-SAFE BOOKING FLOW" : "ROLE-BASED INCIDENT WORKSPACE"}<span>0{index + 1}</span></span>
-    </a>
-  </article>
+
+    <div className="mt-4 flex flex-wrap gap-1.5" aria-label="Tech stack">
+      {project.tags.map((tag) => (
+        <span
+          key={tag}
+          className="rounded border border-[var(--border-subtle)] bg-[var(--bg-canvas)] px-2 py-1 font-mono text-[11px] text-[var(--text-secondary)]"
+        >
+          {tag}
+        </span>
+      ))}
+    </div>
+
+    {project.highlights && project.highlights.length > 0 && (
+      <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1.5">
+        <span className="inline-flex items-center gap-1 font-mono text-[11px] text-[var(--text-muted)]">
+          <Code2 size={12} aria-hidden="true" /> Source:
+        </span>
+        {project.highlights.map((item) => (
+          <a
+            key={item.label}
+            href={item.url}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1 font-mono text-[11px] text-[var(--text-secondary)] underline decoration-[var(--border-strong)] underline-offset-4 transition-colors hover:text-[var(--accent)] hover:decoration-[var(--accent)]"
+          >
+            {item.label}
+            <ArrowUpRight size={11} aria-hidden="true" />
+          </a>
+        ))}
+      </div>
+    )}
+  </>
 );
 
 export const ProjectsSection = () => {
   const [ticketBlitz, prodWatch, chitChatGPT] = portfolioData.projects;
 
   return (
-    <section className="work-section" id="work" aria-labelledby="work-title">
-      <div className="section-wrap">
-        <div className="section-kicker" data-reveal><span>01</span><span>Selected work</span><i /></div>
-        <div className="section-intro" data-reveal>
-          <h2 className="section-heading" id="work-title">Real products.<br /><em>Real engineering decisions.</em></h2>
-          <div className="section-sidecopy"><span>FROM IDEA TO IMPLEMENTATION</span><p>A selection of full-stack builds, with the backend thinking brought to the front.</p></div>
+    <section id="projects" aria-labelledby="projects-heading" className="py-16 sm:py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <SectionHeader
+          index="01"
+          eyebrow="Featured Work"
+          id="projects-heading"
+          title="Built for concurrency, security & real-time scale."
+          description="Full-stack systems where relational data integrity, state transitions, and responsive frontend UX work together."
+        />
+
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+          {/* Spotlight Card: TicketBlitz */}
+          <article
+            id={ticketBlitz.id}
+            data-reveal
+            className="rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-5 transition-colors hover:border-[var(--border-strong)] sm:p-6 lg:col-span-2 lg:grid lg:grid-cols-12 lg:items-center lg:gap-8"
+          >
+            <div className="lg:col-span-6">
+              <ViewportFrame project={ticketBlitz} />
+            </div>
+            <div className="mt-5 flex flex-col justify-between lg:col-span-6 lg:mt-0">
+              <div>
+                <ProjectMeta project={ticketBlitz} />
+              </div>
+              <ProjectActionBar project={ticketBlitz} />
+            </div>
+          </article>
+
+          {/* Twin Bento Cards: ProdWatch & ChitChatGPT */}
+          {[prodWatch, chitChatGPT].map((project) => (
+            <article
+              key={project.id}
+              id={project.id}
+              data-reveal
+              className="flex flex-col justify-between rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-5 transition-colors hover:border-[var(--border-strong)] sm:p-6"
+            >
+              <div>
+                <ViewportFrame project={project} />
+                <div className="mt-5">
+                  <ProjectMeta project={project} />
+                </div>
+              </div>
+              <ProjectActionBar project={project} />
+            </article>
+          ))}
         </div>
-
-        <div className="featured-projects">
-          <FeaturedProject project={ticketBlitz} index={0} />
-          <FeaturedProject project={prodWatch} index={1} />
-        </div>
-
-        <article className="supporting-project" aria-labelledby="chitchat-title" data-reveal>
-          <a className="supporting-project-image" href={chitChatGPT.demoUrl} target="_blank" rel="noreferrer" aria-label="Open ChitChatGPT live project">
-            <img src={chitChatGPT.image} alt={chitChatGPT.imageAlt} width="1916" height="870" loading="lazy" decoding="async" />
-            <span>OPEN LIVE PROJECT <ArrowUpRight size={16} /></span>
-          </a>
-          <div className="supporting-project-copy">
-            <div className="project-card-topline"><span>{chitChatGPT.number} / ALSO BUILT</span><span>REAL-TIME</span></div>
-            <h3 id="chitchat-title">{chitChatGPT.title}</h3>
-            <p className="project-subtitle">{chitChatGPT.subtitle}</p>
-            <p className="supporting-description">{chitChatGPT.description}</p>
-            <div className="tag-list" aria-label="Technologies used">{chitChatGPT.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-            <ProjectLinks project={chitChatGPT} />
-          </div>
-        </article>
-
-        <a className="github-cta" href={portfolioData.socialLinks[0].url} target="_blank" rel="noreferrer" data-reveal>
-          <span>There’s more in the repository.</span>
-          <strong>Explore my GitHub <ArrowRight size={26} /></strong>
-        </a>
       </div>
     </section>
   );

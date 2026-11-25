@@ -1,29 +1,84 @@
-import { ArrowUpRight, GraduationCap } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { portfolioData } from "../data/portfolioData";
+import { SectionHeader } from "./SectionHeader";
 
-export const AboutSection = () => {
-  const { degree, institution, graduation, role } = portfolioData.personalInfo;
-  const linkedin = portfolioData.socialLinks.find((link) => link.name === "LinkedIn");
+export const AboutSection = () => (
+  <section
+    id="about"
+    aria-labelledby="about-heading"
+    className="border-t border-[var(--border-subtle)] py-16 sm:py-24"
+  >
+    <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <SectionHeader
+        index="04"
+        eyebrow="Engineering Principles"
+        id="about-heading"
+        title="How I reason about production code."
+        description="Designing interfaces and backends around explicit state machines, database invariants, and clean contracts."
+      />
 
-  return (
-    <section className="about-section section-wrap" id="about" aria-labelledby="about-title">
-      <div className="section-kicker" data-reveal><span>03</span><span>Behind the code</span><i /></div>
-      <div className="about-layout">
-        <div className="about-statement" data-reveal>
-          <span className="about-spark" aria-hidden="true">✳</span>
-          <h2 className="section-heading" id="about-title">Curious about the product.<br /><em>Serious about the details.</em></h2>
+      <div className="grid gap-6 lg:grid-cols-12">
+        <div
+          data-reveal
+          className="flex flex-col justify-between rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 lg:col-span-5"
+        >
+          <div>
+            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--accent)]">
+              Profile
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-[var(--text-secondary)] sm:text-base">
+              I&apos;m a full-stack developer (B.Tech IT, NSUT &apos;24) who enjoys owning complete
+              product slices—from PostgreSQL schema constraints and Node.js REST/WebSocket APIs up
+              to responsive React interfaces.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-[var(--text-secondary)] sm:text-base">
+              My focus is building software that stays predictable under real-world pressure:
+              concurrent seat locks, idempotent payments, role-restricted audit logs, and
+              low-latency collaborative rooms.
+            </p>
+          </div>
+
+          <div className="mt-6 border-t border-[var(--border-subtle)] pt-4 font-mono text-xs text-[var(--text-muted)]">
+            Based in {portfolioData.personalInfo.location} · Open to Full-Time Roles
+          </div>
         </div>
-        <div className="about-copy" data-reveal>
-          <p>I’m Akash, a {role.toLowerCase()} interested in how APIs, relational data, and failure handling fit together. I enjoy building complete products while paying close attention to what the system must keep true.</p>
-          <p>My sweet spot is turning a fuzzy product requirement into a clear data model, a dependable API, and an interface people can actually use.</p>
-          {linkedin && <a className="text-link" href={linkedin.url} target="_blank" rel="noreferrer">More about my journey <ArrowUpRight size={16} /></a>}
+
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:col-span-7">
+          {portfolioData.engineeringPrinciples.map((item) => (
+            <a
+              key={item.index}
+              href={item.url}
+              target="_blank"
+              rel="noreferrer"
+              data-reveal
+              className="group flex flex-col justify-between rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-5 transition-colors hover:border-[var(--accent)]"
+            >
+              <div>
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[11px] font-medium text-[var(--accent)]">
+                    {item.index}
+                  </span>
+                  <ArrowUpRight
+                    size={14}
+                    className="text-[var(--text-muted)] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[var(--accent)]"
+                    aria-hidden="true"
+                  />
+                </div>
+                <h3 className="font-display mt-3 text-sm font-semibold text-[var(--text-primary)]">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-xs leading-relaxed text-[var(--text-secondary)]">
+                  {item.detail}
+                </p>
+              </div>
+              <div className="mt-4 flex items-center justify-between border-t border-[var(--border-subtle)] pt-3 font-mono text-[10px] text-[var(--text-muted)]">
+                <span>{item.project}</span>
+                <span>{item.file}</span>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
-      <div className="education-card" data-reveal>
-        <span className="education-icon"><GraduationCap size={28} aria-hidden="true" /></span>
-        <div><span>EDUCATION / {graduation}</span><h3>{degree}</h3><p>{institution}</p></div>
-        <span className="education-stamp">B.TECH<br /><strong>’{graduation.slice(-2)}</strong></span>
-      </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);

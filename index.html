@@ -1,30 +1,48 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f3f1eb" />
+    <meta name="theme-color" content="#0a0a0b" />
+    <script>
+      (() => {
+        try {
+          const saved = localStorage.getItem("portfolio-theme");
+          const theme = saved === "light" || saved === "dark" ? saved : "dark";
+          const root = document.documentElement;
+          root.classList.toggle("dark", theme === "dark");
+          root.classList.toggle("light", theme === "light");
+          const meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute("content", theme === "dark" ? "#0a0a0b" : "#f2f0ea");
+        } catch {
+          // Ignore storage access errors
+        }
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <meta
       name="description"
-      content="Akash Kalyan is a backend-focused software engineer building applications with Node.js, Express, and PostgreSQL, with an emphasis on correctness and reliable systems."
+      content="Akash Kalyan — Full-Stack Software Engineer building transaction-safe PostgreSQL backends, real-time WebSocket apps, and crisp React interfaces."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Akash Kalyan — Backend-focused software engineer" />
+    <meta property="og:title" content="Akash Kalyan — Full-Stack Software Engineer" />
     <meta
       property="og:description"
-      content="Selected work in backend engineering, PostgreSQL data integrity, API design, and reliable full-stack products."
+      content="Selected full-stack builds featuring PostgreSQL row-level locking, RBAC audit triggers, and real-time WebRTC/AI collaboration."
     />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Akash Kalyan — Backend-focused software engineer" />
+    <meta name="twitter:title" content="Akash Kalyan — Full-Stack Software Engineer" />
     <meta
       name="twitter:description"
-      content="Selected work in backend engineering, PostgreSQL data integrity, API design, and reliable full-stack products."
+      content="Full-Stack Software Engineer specializing in React, Node.js, TypeScript, and PostgreSQL."
     />
-    <title>Akash Kalyan — Backend-focused software engineer</title>
+    <title>Akash Kalyan — Full-Stack Software Engineer</title>
   </head>
   <body>
     <div id="root"></div>

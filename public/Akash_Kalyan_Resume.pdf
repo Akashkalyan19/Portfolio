@@ -1,0 +1,208 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R /F2 5 0 R /F3 6 0 R >> >> /Contents 7 0 R /Annots [8 0 R 9 0 R 10 0 R 11 0 R 12 0 R 13 0 R] >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
+endobj
+7 0 obj
+<< /Length 7240 >>
+stream
+0.080 0.080 0.100 rg
+BT /F2 21 Tf 1 0 0 1 46.00 748.00 Tm (Akash Kalyan) Tj ET
+0.250 0.250 0.280 rg
+BT /F3 12.5 Tf 1 0 0 1 194.00 749.00 Tm (Full-stack web developer) Tj ET
+0.080 0.340 0.680 rg
+BT /F1 9.5 Tf 1 0 0 1 46.00 728.00 Tm (Akashkalyan719@gmail.com) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.5 Tf 1 0 0 1 266.00 728.00 Tm (9711469219) Tj ET
+0.080 0.340 0.680 rg
+BT /F1 9.5 Tf 1 0 0 1 46.00 715.00 Tm (github.com/Akashkalyan19) Tj ET
+0.080 0.340 0.680 rg
+BT /F1 9.5 Tf 1 0 0 1 266.00 715.00 Tm (linkedin.com/in/akash-kalyan-477584163) Tj ET
+0.080 0.080 0.100 rg
+BT /F2 10.5 Tf 1 0 0 1 46.00 695.00 Tm (PROFILE) Tj ET
+0.80 w 0.200 0.200 0.240 RG
+46.00 691.00 m 566.00 691.00 l S
+0.250 0.250 0.280 rg
+BT /F1 9.5 Tf 1 0 0 1 46.00 677.00 Tm (Full-stack developer with strong experience across both frontend and backend systems. Proficient in) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.5 Tf 1 0 0 1 46.00 664.50 Tm (building responsive user interfaces with React/Next.js and developing scalable backend services using) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.5 Tf 1 0 0 1 46.00 652.00 Tm (Node.js, REST APIs, and PostgreSQL. Experienced in handling data integrity, transactions, and) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.5 Tf 1 0 0 1 46.00 639.50 Tm (concurrency, with a focus on building reliable, end-to-end web applications.) Tj ET
+0.080 0.080 0.100 rg
+BT /F2 10.5 Tf 1 0 0 1 46.00 621.00 Tm (SKILLS) Tj ET
+0.80 w 0.200 0.200 0.240 RG
+46.00 617.00 m 566.00 617.00 l S
+0.080 0.080 0.100 rg
+BT /F2 9.5 Tf 1 0 0 1 46.00 603.00 Tm (Languages:) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.5 Tf 1 0 0 1 151.00 603.00 Tm (C/C++, JavaScript, TypeScript) Tj ET
+0.080 0.080 0.100 rg
+BT /F2 9.5 Tf 1 0 0 1 46.00 589.50 Tm (Frontend & Backend:) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.5 Tf 1 0 0 1 151.00 589.50 Tm (React.js, Node.js, Express.js, RESTful APIs, JWT, PostgreSQL, MongoDB) Tj ET
+0.080 0.080 0.100 rg
+BT /F2 9.5 Tf 1 0 0 1 46.00 576.00 Tm (Cloud & DevOps:) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.5 Tf 1 0 0 1 151.00 576.00 Tm (AWS \(EC2, S3\), Docker, GitHub Actions \(CI/CD\)) Tj ET
+0.080 0.080 0.100 rg
+BT /F2 9.5 Tf 1 0 0 1 46.00 562.50 Tm (Tools:) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.5 Tf 1 0 0 1 151.00 562.50 Tm (Git, GitHub, Postman) Tj ET
+0.080 0.080 0.100 rg
+BT /F2 10.5 Tf 1 0 0 1 46.00 543.00 Tm (PROJECTS) Tj ET
+0.80 w 0.200 0.200 0.240 RG
+46.00 539.00 m 566.00 539.00 l S
+0.080 0.080 0.100 rg
+BT /F2 10 Tf 1 0 0 1 46.00 525.00 Tm (TicketBlitz - Concurrency-Safe Seat Booking Backend) Tj ET
+0.080 0.340 0.680 rg
+BT /F1 8.5 Tf 1 0 0 1 508.00 525.00 Tm ([GitHub Repo]) Tj ET
+0.250 0.250 0.280 rg
+BT /F2 9.5 Tf 1 0 0 1 52.00 511.50 Tm (-) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.3 Tf 1 0 0 1 62.00 511.50 Tm (Designed a transactional seat booking system enforcing a strict state machine \(available -> held) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.3 Tf 1 0 0 1 62.00 499.50 Tm (-> booked\) under concurrent access.) Tj ET
+0.250 0.250 0.280 rg
+BT /F2 9.5 Tf 1 0 0 1 52.00 487.50 Tm (-) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.3 Tf 1 0 0 1 62.00 487.50 Tm (Prevented race conditions under concurrent access using PostgreSQL row-level locking and ACID) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.3 Tf 1 0 0 1 62.00 475.50 Tm (transactions.) Tj ET
+0.250 0.250 0.280 rg
+BT /F2 9.5 Tf 1 0 0 1 52.00 463.50 Tm (-) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.3 Tf 1 0 0 1 62.00 463.50 Tm (Implemented idempotent payments and automatic recovery for expired holds and stuck payments.) Tj ET
+0.250 0.250 0.280 rg
+BT /F2 9.5 Tf 1 0 0 1 52.00 451.50 Tm (-) Tj ET
+0.420 0.420 0.460 rg
+BT /F3 9.2 Tf 1 0 0 1 62.00 451.50 Tm (Tech Stack: Node.js, Express, PostgreSQL) Tj ET
+0.080 0.080 0.100 rg
+BT /F2 10 Tf 1 0 0 1 46.00 435.50 Tm (ProdWatch - Production Incident Management System) Tj ET
+0.080 0.340 0.680 rg
+BT /F1 8.5 Tf 1 0 0 1 508.00 435.50 Tm ([GitHub Repo]) Tj ET
+0.250 0.250 0.280 rg
+BT /F2 9.5 Tf 1 0 0 1 52.00 422.00 Tm (-) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.3 Tf 1 0 0 1 62.00 422.00 Tm (Built a production-style incident management platform with JWT authentication and role-based) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.3 Tf 1 0 0 1 62.00 410.00 Tm (access control \(RBAC\).) Tj ET
+0.250 0.250 0.280 rg
+BT /F2 9.5 Tf 1 0 0 1 52.00 398.00 Tm (-) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.3 Tf 1 0 0 1 62.00 398.00 Tm (Designed an immutable incident timeline with PostgreSQL trigger-based audit logging, ensuring) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.3 Tf 1 0 0 1 62.00 386.00 Tm (critical changes are captured independently of application logic.) Tj ET
+0.250 0.250 0.280 rg
+BT /F2 9.5 Tf 1 0 0 1 52.00 374.00 Tm (-) Tj ET
+0.420 0.420 0.460 rg
+BT /F3 9.2 Tf 1 0 0 1 62.00 374.00 Tm (Tech Stack: React, Node.js, Express, PostgreSQL, JWT, Tailwind CSS) Tj ET
+0.080 0.080 0.100 rg
+BT /F2 10 Tf 1 0 0 1 46.00 358.00 Tm (ChitChatGPT - Multi User Real-Time Chat with AI) Tj ET
+0.080 0.340 0.680 rg
+BT /F1 8.5 Tf 1 0 0 1 508.00 358.00 Tm ([GitHub Repo]) Tj ET
+0.250 0.250 0.280 rg
+BT /F2 9.5 Tf 1 0 0 1 52.00 344.50 Tm (-) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.3 Tf 1 0 0 1 62.00 344.50 Tm (Developed a real-time chat platform with multi-room messaging, authentication, and persistent) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.3 Tf 1 0 0 1 62.00 332.50 Tm (chat history.) Tj ET
+0.250 0.250 0.280 rg
+BT /F2 9.5 Tf 1 0 0 1 52.00 320.50 Tm (-) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.3 Tf 1 0 0 1 62.00 320.50 Tm (Implemented WebSocket-based communication using Socket.io alongside REST APIs.) Tj ET
+0.250 0.250 0.280 rg
+BT /F2 9.5 Tf 1 0 0 1 52.00 308.50 Tm (-) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.3 Tf 1 0 0 1 62.00 308.50 Tm (Integrated Google Gemini APIs to support AI-assisted chat features.) Tj ET
+0.250 0.250 0.280 rg
+BT /F2 9.5 Tf 1 0 0 1 52.00 296.50 Tm (-) Tj ET
+0.420 0.420 0.460 rg
+BT /F3 9.2 Tf 1 0 0 1 62.00 296.50 Tm (Tech Stack: React, Node.js, Socket.io, PostgreSQL, Gemini API) Tj ET
+0.080 0.080 0.100 rg
+BT /F2 10.5 Tf 1 0 0 1 46.00 274.50 Tm (EDUCATION) Tj ET
+0.80 w 0.200 0.200 0.240 RG
+46.00 270.50 m 566.00 270.50 l S
+0.080 0.080 0.100 rg
+BT /F2 10 Tf 1 0 0 1 46.00 256.50 Tm (Netaji Subhash University of Technology \(NSUT\)) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.5 Tf 1 0 0 1 508.00 256.50 Tm (2020 - 2024) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.5 Tf 1 0 0 1 46.00 243.50 Tm (B.Tech \(Information Technology\)  |  CGPA: 7.35) Tj ET
+0.080 0.080 0.100 rg
+BT /F2 10.5 Tf 1 0 0 1 46.00 223.50 Tm (EXPERIENCE, CERTIFICATIONS & ACHIEVEMENTS) Tj ET
+0.80 w 0.200 0.200 0.240 RG
+46.00 219.50 m 566.00 219.50 l S
+0.250 0.250 0.280 rg
+BT /F2 9.5 Tf 1 0 0 1 52.00 205.50 Tm (-) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.3 Tf 1 0 0 1 62.00 205.50 Tm (HCL Infosystems Ltd. \(06/2023 - 08/2023\)  -  Front-end Developer Intern) Tj ET
+0.250 0.250 0.280 rg
+BT /F2 9.5 Tf 1 0 0 1 52.00 192.00 Tm (-) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.3 Tf 1 0 0 1 62.00 192.00 Tm (The Complete Web Development Bootcamp \(08/2022 - 2023\)  -  Udemy) Tj ET
+0.250 0.250 0.280 rg
+BT /F2 9.5 Tf 1 0 0 1 52.00 178.50 Tm (-) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.3 Tf 1 0 0 1 62.00 178.50 Tm (Basic C++ with Data Structures and Algorithms \(02/2021 - 07/2021\)  -  Coding Ninjas) Tj ET
+0.250 0.250 0.280 rg
+BT /F2 9.5 Tf 1 0 0 1 52.00 165.00 Tm (-) Tj ET
+0.250 0.250 0.280 rg
+BT /F1 9.3 Tf 1 0 0 1 62.00 165.00 Tm (LeetCode  -  1652 Rating) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Annot /Subtype /Link /Rect [46.00 726.00 164.56 737.50] /Border [0 0 0] /A << /S /URI /URI (mailto:Akashkalyan719@gmail.com) >> >>
+endobj
+9 0 obj
+<< /Type /Annot /Subtype /Link /Rect [46.00 713.00 164.56 724.50] /Border [0 0 0] /A << /S /URI /URI (https://github.com/Akashkalyan19) >> >>
+endobj
+10 0 obj
+<< /Type /Annot /Subtype /Link /Rect [266.00 713.00 453.72 724.50] /Border [0 0 0] /A << /S /URI /URI (https://linkedin.com/in/akash-kalyan-477584163) >> >>
+endobj
+11 0 obj
+<< /Type /Annot /Subtype /Link /Rect [508.00 523.00 565.46 533.50] /Border [0 0 0] /A << /S /URI /URI (https://github.com/Akashkalyan19/TicketBlitz) >> >>
+endobj
+12 0 obj
+<< /Type /Annot /Subtype /Link /Rect [508.00 433.50 565.46 444.00] /Border [0 0 0] /A << /S /URI /URI (https://github.com/Akashkalyan19/ProdWatch) >> >>
+endobj
+13 0 obj
+<< /Type /Annot /Subtype /Link /Rect [508.00 356.00 565.46 366.50] /Border [0 0 0] /A << /S /URI /URI (https://github.com/Akashkalyan19/ChitChatGPT) >> >>
+endobj
+xref
+0 14
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000121 00000 n 
+0000000317 00000 n 
+0000000387 00000 n 
+0000000462 00000 n 
+0000000540 00000 n 
+0000007832 00000 n 
+0000007988 00000 n 
+0000008145 00000 n 
+0000008318 00000 n 
+0000008489 00000 n 
+0000008658 00000 n 
+trailer
+<< /Size 14 /Root 1 0 R >>
+startxref
+8829
+%%EOF
